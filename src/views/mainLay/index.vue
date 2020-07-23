@@ -5,8 +5,6 @@
       <div id="treeList">
         <el-menu
           default-active="1"
-          @open="handleOpen"
-          @close="handleClose"
           background-color="white"
           text-color="#000"
           active-text-color="#FF951D"
@@ -14,7 +12,7 @@
           <el-menu-item
             :index="item.index"
             v-for="item in menuList"
-            @click="jumpRouter(item.router)"
+            @click="jumpRouter(item.router,item.content)"
             style="padding-left:.2rem;font-size:.15rem;height:.5rem;
       line-height:.5rem"
             :key="item.index"
@@ -74,8 +72,8 @@
 <script>
 import axios from "axios";
 import { createNamespacedHelpers } from "vuex";
-const { mapState: mapMainLayState } = createNamespacedHelpers("mainLay");
-export default {
+const { mapState: mapMainLayState, mapActions:mapMainLayActions } = createNamespacedHelpers("mainLay");
+export default { 
   data() {
     return {
       menuList: null,
@@ -104,22 +102,16 @@ export default {
   },
   created() {},
   methods: {
-    //菜单栏开启
-    handleOpen(key, keyPath) {
-      console.log(key, keyPath);
-    },
-    //菜单栏关闭
-    handleClose(key, keyPath) {
-      console.log(key, keyPath);
-    },
+    ...mapMainLayActions(['setSubTitle']),
     //获取菜单列表信息
     getMenuList() {
       axios.get("./data/menuList.json").then((res) => {
         this.menuList = res.data;
       });
     },
-    jumpRouter(path) {
+    jumpRouter(path,name) {
       this.$router.push({ path });
+      this.setSubTitle(name)
     },
   },
   mounted() {

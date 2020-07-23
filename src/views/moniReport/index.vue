@@ -1,25 +1,18 @@
 <template>
-    <div id="main">
-        <div id="content">
-         <h1>监控报表</h1>
-        </div>
+  <div id="main">
+    <div class="content">
+      <el-tabs>
+        <el-tab-pane label="通话记录" name="first">通话记录</el-tab-pane>
+        <el-tab-pane label="员工监控" name="second">员工监控</el-tab-pane>
+      </el-tabs>
     </div>
+  </div>
 </template>
 
 <script>
-export default {
-    
-}
+export default {};
 </script>
 
 <style lang="scss" scoped>
-#main{
-    width: 100%;
-    height: 100%;
-}
-#content{
-    width: 100%;
-   margin: .2rem;
-   overflow-x: auto;
-}
+
 </style>

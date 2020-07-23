@@ -1,25 +1,17 @@
 <template>
-    <div id="main">
-        <div id="content">
-         <h1>客服工作台</h1>
-        </div>
+  <div id="main">
+    <div class="content">
+      <el-tabs>
+        <el-tab-pane label="客服工作台" name="first">用户管理</el-tab-pane>
+      </el-tabs>
     </div>
+  </div>
 </template>
 
 <script>
-export default {
-    
-}
+export default {};
 </script>
 
 <style lang="scss" scoped>
-#main{
-    width: 100%;
-    height: 100%;
-}
-#content{
-    width: 100%;
-   margin: .2rem;
-   overflow-x: auto;
-}
+
 </style>
