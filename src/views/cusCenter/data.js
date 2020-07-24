@@ -1501,6 +1501,16 @@ module.exports = {
             ]
         },
         {
+            "first": "T",
+            "provinceName": "天津市",
+            "cityList": [
+                {
+                    "cityId": 110,
+                    "cityName": "天津市"
+                }
+            ]
+        },
+        {
             "first": "X",
             "provinceName": "西藏自治区",
             "cityList": [
@@ -1531,6 +1541,16 @@ module.exports = {
                 {
                     "cityId": 135,
                     "cityName": "山南地区"
+                }
+            ]
+        },
+        {
+            "first": "X",
+            "provinceName": "香港特别行政区",
+            "cityList": [
+                {
+                    "cityId": 377,
+                    "cityName": "香港特别行政区"
                 }
             ]
         },

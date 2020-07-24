@@ -1,40 +1,63 @@
 <template>
   <div id="main">
     <div class="content">
-      <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">安徽</el-checkbox>
-  <div style="margin: 15px 0;"></div>
-  <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
-    <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
-  </el-checkbox-group>
+      <div class="classifty-menu">
+      <el-menu
+      default-active="1"
+      class="el-menu-vertical-demo"
+      background-color="#fff"
+      text-color="black"
+      active-text-color="#fff">
+      <el-menu-item index="1">
+        <!-- <i class="el-icon-setting"></i> -->
+        <span slot="title">欢迎语</span>
+      </el-menu-item>
+      <el-menu-item index="2">
+        <!-- <i class="el-icon-setting"></i> -->
+        <span slot="title">结束语</span>
+      </el-menu-item>
+      <el-menu-item index="3">
+        <!-- <i class="el-icon-setting"></i> -->
+        <span slot="title">常用语</span>
+      </el-menu-item>
+      <el-menu-item index="4">
+        <!-- <i class="el-icon-setting"></i> -->
+        <span slot="title">常用产品知识</span>
+      </el-menu-item>
+      <el-menu-item index="5">
+        <!-- <i class="el-icon-setting"></i> -->
+        <span slot="title">常用产品业务知识</span>
+      </el-menu-item>
+      <el-menu-item index="6">
+        <!-- <i class="el-icon-setting"></i> -->
+        <span slot="title">常用产品道歉用语</span>
+      </el-menu-item>
+    </el-menu>
+    </div>
     </div>
   </div>
 </template>
 
 <script>
- const cityOptions = ['上海', '北京', '广州', '深圳'];
-  export default {
-    data() {
-      return {
-        checkAll: false,
-        checkedCities: [],
-        cities: cityOptions,
-        isIndeterminate: false
-      };
-    },
-    methods: {
-      handleCheckAllChange(val) {
-        this.checkedCities = val ? cityOptions : [];
-        this.isIndeterminate = false;
-      },
-      handleCheckedCitiesChange(value) {
-        let checkedCount = value.length;
-        this.checkAll = checkedCount === this.cities.length;
-        this.isIndeterminate = checkedCount > 0 && checkedCount < this.cities.length;
-      }
-    }
-  };
+
 </script>
 
-<style lang="scss" scoped>
-
+<style lang="scss">
+.classifty-menu{
+  .el-menu{
+  width: 20% ;
+  border-right: none;
+}
+.el-menu-item{
+  height:.7rem;
+  line-height: .7rem;
+  padding-top: 0px;
+  padding-left: .1rem !important;
+}
+.el-menu-item.is-active {
+    // border-right: 0.04rem solid #ff951d !important;
+    background-color: #fff !important;
+    color:black;
+  }
+}
 </style>
